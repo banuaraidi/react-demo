@@ -14,15 +14,15 @@ app.get('/', (request, response) => {
   response.json({ info: 'It works!' })
 });
 
-const getItems = require('./routes/getItems');
-const addItem = require('./routes/addItem');
-const updateItem = require('./routes/updateItem');
-const deleteItem = require('./routes/deleteItem');
+// const getItems = require('./routes/getItems');
+// const addItem = require('./routes/addItem');
+// const updateItem = require('./routes/updateItem');
+// const deleteItem = require('./routes/deleteItem');
 
-app.get('/items', getItems);
-app.post('/items', addItem);
-app.put('/items/:id', updateItem);
-app.delete('/items/:id', deleteItem);
+// app.get('/items', getItems);
+// app.post('/items', addItem);
+// app.put('/items/:id', updateItem);
+// app.delete('/items/:id', deleteItem);
 
 const port = 3001;
 const db = require('./persistence');

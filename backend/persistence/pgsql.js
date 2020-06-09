@@ -1,8 +1,4 @@
 const waitPort = require('wait-port');
-// const pgsql = require('pg');
-
-console.log('=== env ===');
-console.log(process.env);
 
 const Pool = require('pg').Pool;
 let pool;
