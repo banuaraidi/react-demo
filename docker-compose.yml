@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  # backend service
+  backend:
+    build: ./backend/
+    ports:
+      - "3001:3001"
+    environment: 
+      DB_HOST: postgres
+      DB_USER: test
+      DB_PASSWORD: secret
+      DB_NAME: demo
+
+  # postgre service
+  postgres:
+    image: postgres:12-alpine
+    environment: 
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "secret"
+      POSTGRES_DB: "demo"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes: 
+  pg_data:
