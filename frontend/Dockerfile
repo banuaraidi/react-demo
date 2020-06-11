@@ -6,7 +6,7 @@ RUN yarn install --production
 COPY . .
 RUN yarn build
 # EXPOSE 3002
-# CMD ["serve", "-s", "build", "-l", "3002"]
+# CMD ["yarn", "start"]
 
 FROM nginx:stable-alpine
 COPY --from=build /usr/src/app/build /usr/share/nginx/html

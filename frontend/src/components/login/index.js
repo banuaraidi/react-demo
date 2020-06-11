@@ -6,9 +6,9 @@ import { useAppContext } from "../../libs/contextLib";
 
 export default function Login() {
 
-  const { userHasAuthenticated } = useAppContext();
+  const { userHasAuthenticated, setCookie } = useAppContext();
 
-  const history = useHistory()
+  const history = useHistory();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +21,8 @@ export default function Login() {
     event.preventDefault();
     if(email === 'user@demo.app' && password === '123' ) {
       userHasAuthenticated(true);
-      history.push("/");
+      setCookie('login', true, { path: '/' });
+      history.push("/todo");
     }else{
       alert('email=user@demo.app and password=123');
     }
@@ -54,7 +55,7 @@ export default function Login() {
               placeholder="Enter password"
             />
           </FormGroup>
-          <Button block bsSize="large" disabled={!validateForm()} type="submit" className="btn btn-primary btn-block">
+          <Button block bssize="large" disabled={!validateForm()} type="submit" className="btn btn-primary btn-block">
             Login
           </Button>
         </Form>
