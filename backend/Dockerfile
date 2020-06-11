@@ -1,7 +1,8 @@
 FROM node:12-alpine
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
+RUN npm install -g nodemon
 RUN yarn install --production
 COPY . .
 EXPOSE 3001
-CMD [ "node", "index.js" ]
+CMD ["nodemon", "index.js"]

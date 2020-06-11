@@ -6,7 +6,7 @@ const baseApi = 'http://localhost:3001';
 
 function Todo() {
   return (
-    <Container>
+    <Container className="app-wrapper">
       <Row>
         <Col md={{ offset: 3, span: 6 }}>
           <TodoListCard />
