@@ -1,0 +1,62 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "postgres",
+      "image": "postgres:12-alpine",
+      "hostname": "postgres",
+      "environment": [
+        {
+          "name": "POSTGRES_USER",
+          "value": "test"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "value": "secret"
+        },
+        {
+          "name": "POSTGRES_DB",
+          "value": "demo"
+        }
+      ],
+      "memory": 500,
+      "essential": true
+    },
+    {
+      "name": "backend",
+      "image": "banuaraidi/api-todo",
+      "hostname": "backend",
+      "environment": [
+        {
+          "name": "DB_HOST",
+          "value": "postgres"
+        },
+        {
+          "name": "DB_USER",
+          "value": "test"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "value": "secret"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "demo"
+        },
+        {
+          "name": "WAIT_HOSTS",
+          "value": "postgres:5432"
+        },
+        {
+          "name": "WAIT_HOSTS_TIMEOUT",
+          "value": "90"
+        }
+      ],
+      "links": [
+        "postgres"
+      ],
+      "memory": 500,
+      "essential": false
+    }
+  ]
+}
