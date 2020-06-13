@@ -14,7 +14,7 @@
     "wait-port": "^0.2.9"
   },
   "scripts": {
-    "start": "PORT=3002 nodemon start",
+    "start": "nodemon start",
     "test": "jest"
   },
   "jest": {
