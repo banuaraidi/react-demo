@@ -16,10 +16,10 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: ap-southeast-1
-  app: API-Todo
-  env: ApiTodo-env
+  app: docker-api-demo
+  env: DockerApiDemo-env
   bucket_name: elasticbeanstalk-ap-southeast-1-040596896543
-  bucket_path: API-Todo
+  bucket_path: docker-api-demo
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
