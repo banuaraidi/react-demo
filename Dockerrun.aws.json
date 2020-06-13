@@ -19,7 +19,7 @@
           "value": "demo"
         }
       ],
-      "memory": 500,
+      "memory": 128,
       "essential": true
     },
     {
@@ -55,7 +55,7 @@
       "links": [
         "postgres"
       ],
-      "memory": 500,
+      "memory": 128,
       "essential": false
     }
   ]
