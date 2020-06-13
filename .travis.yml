@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+before_instal:
+  - docker build -t banuaraidi/api-todo -f ./backend/Dockerfile ./backend
+
+script:
+  - docker run banuaraidi/api-todo npm test
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push banuaraidi/api-todo
