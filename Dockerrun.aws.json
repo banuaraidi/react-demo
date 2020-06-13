@@ -19,13 +19,24 @@
           "value": "demo"
         }
       ],
-      "memory": 128,
+      "memory": 256,
       "essential": true
     },
     {
       "name": "backend",
       "image": "banuaraidi/api-todo",
       "hostname": "backend",
+      "links": [
+        "postgres"
+      ],
+      "memory": 256,
+      "essential": false,
+      "portMappings": [
+        {
+          "containerPort":"3000",
+          "hostPort":"80"
+        }
+      ],
       "environment": [
         {
           "name": "DB_HOST",
@@ -51,12 +62,7 @@
           "name": "WAIT_HOSTS_TIMEOUT",
           "value": "90"
         }
-      ],
-      "links": [
-        "postgres"
-      ],
-      "memory": 128,
-      "essential": false
+      ]
     }
   ]
 }

@@ -8,8 +8,9 @@ services:
       # args: 
         # HOST_DB: ${postgres}
     ports:
-      - "3001:3001"
+      - "3000:3000"
     environment: 
+      SERVERPORT: 3000
       DB_HOST: postgres
       DB_USER: test
       DB_PASSWORD: secret

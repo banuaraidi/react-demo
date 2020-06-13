@@ -24,11 +24,13 @@ app.post('/items', addItem);
 app.put('/items/:id', updateItem);
 app.delete('/items/:id', deleteItem);
 
-const port = 3001;
+const {
+  SERVERPORT: PORT
+} = process.env;
 const db = require('./persistence');
 
 db.init().then(() => {
-  app.listen(port, () => console.log(`Listening on port ${port}`));
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 }).catch((err) => {
   console.error(err);
   process.exit(1);
