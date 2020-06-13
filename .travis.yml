@@ -12,3 +12,15 @@ script:
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push banuaraidi/api-todo
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-southeast-1
+  app: API-Todo
+  env: ApiTodo-env
+  bucket_name: elasticbeanstalk-ap-southeast-1-040596896543
+  bucket_path: API-Todo
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_acces_key: $AWS_SECRET_KEY
