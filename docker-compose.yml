@@ -2,7 +2,11 @@ version: "3.7"
 services:
   # backend service
   backend:
-    build: ./backend/
+    build: 
+      context: ./backend/
+      dockerfile: Dockerfile
+      # args: 
+        # HOST_DB: ${postgres}
     ports:
       - "3001:3001"
     environment: 
@@ -10,6 +14,7 @@ services:
       DB_USER: test
       DB_PASSWORD: secret
       DB_NAME: demo
+      WAIT_HOSTS: postgres:5432
     depends_on: 
       - postgres
 

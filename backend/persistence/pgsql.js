@@ -1,4 +1,4 @@
-const waitPort = require('wait-port');
+// const waitPort = require('wait-port');
 
 const Pool = require('pg').Pool;
 let pool;
@@ -12,7 +12,7 @@ const {
 
 async function init() {
 
-  await waitPort({ HOST, port: 5432, timeout: 15000 });
+  // await waitPort({ HOST, port: 5432, timeout: 15000 });
 
   pool = new Pool({
     host: HOST,

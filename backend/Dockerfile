@@ -1,8 +1,16 @@
 FROM node:12-alpine
+
+#install dependancies
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN npm install -g nodemon
 RUN yarn install --production
 COPY . .
+
+## Add the wait script to the image
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
+RUN chmod +x /wait
 EXPOSE 3001
-CMD ["nodemon", "index.js"]
+
+#start-up command
+CMD /wait && yarn start

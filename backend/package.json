@@ -9,7 +9,18 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "jest": "^26.0.1",
     "pg": "^8.2.1",
     "wait-port": "^0.2.9"
+  },
+  "scripts": {
+    "start": "PORT=3002 nodemon start",
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
