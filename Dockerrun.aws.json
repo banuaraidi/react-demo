@@ -20,7 +20,7 @@
         }
       ],
       "memory": 256,
-      "essential": true
+      "essential": false
     },
     {
       "name": "backend",

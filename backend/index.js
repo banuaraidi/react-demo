@@ -14,26 +14,30 @@ app.get('/', (request, response) => {
   response.json({ info: 'It works!' })
 });
 
-const getItems = require('./routes/getItems');
-const addItem = require('./routes/addItem');
-const updateItem = require('./routes/updateItem');
-const deleteItem = require('./routes/deleteItem');
+// const getItems = require('./routes/getItems');
+// const addItem = require('./routes/addItem');
+// const updateItem = require('./routes/updateItem');
+// const deleteItem = require('./routes/deleteItem');
 
-app.get('/items', getItems);
-app.post('/items', addItem);
-app.put('/items/:id', updateItem);
-app.delete('/items/:id', deleteItem);
+// app.get('/items', getItems);
+// app.post('/items', addItem);
+// app.put('/items/:id', updateItem);
+// app.delete('/items/:id', deleteItem);
 
 const {
   SERVERPORT: PORT
 } = process.env;
-const db = require('./persistence');
+// const db = require('./persistence');
 
-db.init().then(() => {
-  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
-}).catch((err) => {
-  console.error(err);
-  process.exit(1);
+// db.init().then(() => {
+//   app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+// }).catch((err) => {
+//   console.error(err);
+//   process.exit(1);
+// });
+
+app.listen(PORT, () => {
+  console.log(`Backend start listening on port ${PORT} `);
 });
 
 const gracefulShutdown = () => {
