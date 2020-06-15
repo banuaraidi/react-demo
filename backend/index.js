@@ -27,6 +27,7 @@ app.delete('/items/:id', deleteItem);
 const {
   SERVERPORT: PORT
 } = process.env;
+console.log('env: ', process.env);
 const db = require('./persistence');
 
 db.init().then(() => {
@@ -40,12 +41,12 @@ db.init().then(() => {
 //   console.log(`Backend start listening on port ${PORT} `);
 // });
 
-const gracefulShutdown = () => {
-  db.teardown()
-    .catch(() => {})
-    .then(() => process.exit());
-};
+// const gracefulShutdown = () => {
+//   db.teardown()
+//     .catch(() => {})
+//     .then(() => process.exit());
+// };
 
-process.on('SIGINT', gracefulShutdown);
-process.on('SIGTERM', gracefulShutdown);
-process.on('SIGUSR2', gracefulShutdown); // Sent by nodemon
+// process.on('SIGINT', gracefulShutdown);
+// process.on('SIGTERM', gracefulShutdown);
+// process.on('SIGUSR2', gracefulShutdown); // Sent by nodemon
