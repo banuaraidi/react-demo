@@ -5,7 +5,6 @@ services:
 
 before_instal:
   - docker build -t banuaraidi/api-todo -f ./backend/Dockerfile ./backend
-  - docker build -t banuaraidi/react-demo -f ./frontend/Dockerfile ./frontend
 
 script:
   - docker run banuaraidi/api-todo npm test
@@ -13,8 +12,6 @@ script:
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push banuaraidi/api-todo
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push banuaraidi/react-demo
 
 deploy:
   provider: elasticbeanstalk
