@@ -2,15 +2,18 @@ version: "3.7"
 services:
   # backend service
   backend:
+    # image: react-demo_backend
     build: 
       context: ./backend/
       dockerfile: Dockerfile
       # args: 
         # HOST_DB: ${postgres}
+    expose:
+      - ${DOCKER_API_PORT}
     ports:
-      - "3000:3000"
+      - ${APP_API_PORT}:${DOCKER_API_PORT}
     environment: 
-      SERVERPORT: 3000
+      SERVERPORT: ${DOCKER_API_PORT}
       DB_HOST: postgres
       DB_USER: test
       DB_PASSWORD: secret
@@ -34,10 +37,14 @@ services:
 
   # frontend service
   frontend:
+    # image: react-demo_frontend
     build: ./frontend
+    expose: 
+      - ${DOCKER_CLIENT_PORT}
     ports: 
-      #  - "3000:3002"
-      - "80:80"
+      - ${APP_CLIENT_PORT}:${DOCKER_CLIENT_PORT}
+    links:
+      - backend
     depends_on: 
       - backend
 

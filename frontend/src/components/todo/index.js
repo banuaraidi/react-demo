@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, InputGroup, Button } from 'react-bootstrap';
 import './style.css';
 
-const baseApi = 'http://localhost:3001';
+const baseApi = '/api/';
 
 function Todo() {
   return (

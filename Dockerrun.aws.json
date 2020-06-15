@@ -33,7 +33,7 @@
       "essential": false,
       "portMappings": [
         {
-          "hostPort": 80,
+          "hostPort": 3000,
           "containerPort": 3000
         }
       ],
@@ -63,6 +63,21 @@
           "value": "90"
         }
       ]
-    }
+    },
+    {
+      "name": "frontend",
+      "image": "banuaraidi/react-demo",
+      "hostname": "frontend",
+      "links": [
+        "backend"
+      ],
+      "memory": 256,
+      "essential": false,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 3000
+        }
+      ],
   ]
 }

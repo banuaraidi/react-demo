@@ -19,15 +19,14 @@ const addItem = require('./routes/addItem');
 const updateItem = require('./routes/updateItem');
 const deleteItem = require('./routes/deleteItem');
 
-app.get('/items', getItems);
-app.post('/items', addItem);
-app.put('/items/:id', updateItem);
-app.delete('/items/:id', deleteItem);
+app.get('/api/items', getItems);
+app.post('/api/items', addItem);
+app.put('/api/items/:id', updateItem);
+app.delete('/api/items/:id', deleteItem);
 
 const {
   SERVERPORT: PORT
 } = process.env;
-console.log('env: ', process.env);
 const db = require('./persistence');
 
 db.init().then(() => {
